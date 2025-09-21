@@ -1,0 +1,20 @@
+name: my first workflow
+
+on:
+  push:
+    branches:
+		- main
+
+jobs:
+	first-job:
+		run-on: ubuntu-latest
+		
+		steps:
+			- name: Print welcome message
+				run: echo "Welcome to Ali's first workflow"
+				
+			- name: Checkout repository
+				uses: actions/checkout@v5.0.0
+
+      - name: list repo
+        run: ls -al
