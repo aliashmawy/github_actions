@@ -1,0 +1,21 @@
+on:
+    #triggers only if change is in src/ and only in main or release branch
+    push:
+        branches:
+            - main
+            - "release/**"
+        paths: 
+            - "src/**"
+    pull_request: 
+        branches: 
+            - main
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout Code
+          uses: actions/checkout@v4.2.2
+
+        - name: run test
+          run: npm test
+
